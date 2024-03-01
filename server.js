@@ -1,18 +1,35 @@
-
-const express =require('express');
-
+const express = require('express');
+const app = express();
 const port = 3000;
 
-const app = express();
+app.get('/', (req, res) => {
+    // URL: http://localhost:3000/
+    res.send("Hello Browser");
+});
 
-app.get('/', (req,res) => {res.send("Hello Browser")});
+app.get('/Isaac', (req, res) => {
+    // URL: http://localhost:3000/Isaac
+    res.send("Hello Isaac");
+});
 
-app.get('/Isaac', (req,res) => {res.send("Hello Isaac")});
+app.get('/Leonardo', (req, res) => {
+    // URL: http://localhost:3000/leonardo
+    res.send("Hello Leonardo Mosiah Janes de Souza");
+});
 
-app.get('/leonardo', (req,res) => {res.send("Hello Leonardo Mosiah Janes de Souza")});
+app.get('/Giacomo', (req, res) => {
+    // URL: http://localhost:3000/giacomo
+    res.send("Hello Giacomo Draghi");
+});
 
-app.get('/giacomo', (req,res) => {res.send("Hello Giacomo Draghi")});
+app.get('/Sawyer', (req, res) => {
+    // URL: http://localhost:3000/sawyer
+    res.send("Hello Sawyer Crawley");
+});
 
-app.get('/giacomo', (req,res) => {res.send("Hello Sawyer Crawley")});
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+});
 
-app.listen(port, ()=>console.log("Listening"));
+// Export the app object for testing purposes
+module.exports = app;
