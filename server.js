@@ -12,7 +12,7 @@ app.get('/Isaac', (req, res) => {
     res.send("Hello Isaac");
 });
 
-app.get('/Leonardo', (req, res) => {
+app.get('/leonardo', (req, res) => {
     // URL: http://localhost:3000/leonardo
     res.send("Hello Leonardo Mosiah Janes de Souza");
 });
@@ -30,6 +30,3 @@ app.get('/Sawyer', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
-
-// Export the app object for testing purposes
-module.exports = app;
