@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: autopilot-cluster-1
+  GKE_CLUSTER: cluster-1
   GKE_ZONE: us-west3
   DEPLOYMENT_NAME: team-api
   IMAGE: team-api
