@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: team-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: team-api
+  template:
+    metadata:
+      labels:
+        app: team-api
+    spec:
+      containers:
+        - name: team-api
+          image: us-west3-docker.pkg.dev/kubernets-418109/team-api/api-tests:latest # IMAGE NEEDS TO BE ARTIFACT REGISTRY NEW REPOSITORY
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: ".5"
+              memory: "500Mi"
+            requests:
+              cpu: ".25"
+              memory: "250Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+              scheme: HTTP
+            failureThreshold: 1
+            periodSeconds: 10
+            timeoutSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /
+              port: 3000
+              scheme: HTTP
+            failureThreshold: 30
+            periodSeconds: 10
+            timeoutSeconds: 10
